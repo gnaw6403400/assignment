@@ -1,0 +1,122 @@
+1. What is index; types of indices; pros and cons
+Dababase objects based on table column for faster retrieval of data.
+Type: clustered, non-clustered
+Pro: faster retrieval of data. Con: takes additional disk space, other DML like insert, update, delete become slow
+ 
+2. What's the difference between Primary key and Unique constraint?
+Primary Key is unique and not null combined, along with a clustered index created for it
+Unique will create a non-clustered index which will not sort
+
+
+3. Tell me about check constraint
+Check constraint secures the domain integrity by restricting the value can be accepted in a column, from a logical expression
+
+
+
+4. Difference between temp table and table variable
+Temp table can be local or global, table variable has smaller scope inside its batch
+Temp table is more for larger data
+Temp table can't be used in stored procedure, while table variable can
+Temp table can create index/constraints
+
+
+5. Difference between WHERE and HAVING
+Where is used before group by, HAVING is used after group by to filter aggregate selected data
+
+
+6. Difference between RANK() and DenseRank() — value gap
+Rank() will skip the number if there is tie, DenseRank() will have every number 
+
+
+7. COUNT(*) vs. COUNT(colName)
+count(*) will include rows with null value while count(colName) will exclude them.
+
+
+
+8. What's the difference between left join and inner join? JOIN and Subquery, which one has a better performance, why?
+Left join will take everything from table in the left side and try to match each row with the table on the right, if it doesn't have one just fill null.
+Join usually has better performance since the database has more optimal excution plan for joins
+
+
+
+9. What is correlated subquery
+It's when a inner subquery is dependent on outer query
+
+
+
+10. What is a CTE, why do we need CTE?
+Common Table Expression, it's a temporary result set used to optimize complex queries which can improve readability and manageablity.
+
+
+11. What does SQL Profiler do?
+It's used to trace the steps queries runs
+
+
+12. What is SQL injection, how to avoid SQL injection?
+SQL injection is having user input sql queries that can do harm to the db,
+we can avoid SQL injection by using stored procedure, input validation, or use parameterized queries
+
+
+
+13. Difference between SP and user defined function? When to use SP when to use function?
+--Usage: Sp is for DML statements while functions are for calculations
+--Calling: Sp uses Execute, Function require Query as well as input parameters
+--input: Sp may or may not need any inputs, while Functions do require one
+--Output: Sp may or may not need any output, but functions must have output paramters
+--Sp can call functions, but functions cannot call SP
+
+
+
+14. Criteria of Union and Union all? Difference between UNION and UNION ALL
+number of column and the data type in all the columns must match 
+Union removes duplicates
+
+
+
+15. Steps you take to improve SQL Queries
+Avoid table scan, unnecessary joins, select *
+choose appropriate index, use join over subquery
+use derived table instead of lots of grouping
+
+
+
+16. concurrency problem in transaction
+Happens when a transaction is not complete and another session tries to access the data, could cause dirty read, phantom read problem, all can be solved by different isolation level
+
+
+
+17. what is deadlock, how to prevent use diff isolation levels
+A deadlock happens when two or more process try to lock the data and waiting for each others to release, we can use different isolation levels to have access to the data and allow what to be committed
+
+18. what is normalization, 1NF - BCNF, benefits using normalization
+It's a process of organizing data to minimize redundancy which can ensures data consistency.
+The series of steps are called "Forms": first normal form - BCNF which is a stricter versoin of 3NF.
+Normalized table can safe disk space, and ensure data consistency.
+
+
+19. what are the system defined databases?
+
+
+
+20. composite key
+Combination of tow or more columns that can be used to uniquely identify rows
+
+21. candidate key
+A key that is eligible to become a PK, mostly a unique key without null value
+
+22. DDL vs. DML
+DDL: data definition language, used to create objects in the database, example CREATE, ALTER DROP
+DML: Data manipulation language, used to query and modify data, example: select,insert, update, delete
+
+23. ACID property
+Atomicity, consistency, isolation, durability
+
+
+24. table scan vs. index scan
+table scan is way slower than index scan, 
+index scan look through sorted data and query optimizers know when to stop and look for another range
+
+
+25. Difference between Union and JOIN
+Union expand vertially JOIN expend horizontally
+
