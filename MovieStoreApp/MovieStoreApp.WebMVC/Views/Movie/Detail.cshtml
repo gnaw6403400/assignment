@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MovieModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <img src="@Model.PosterUrl" class="img-thumbnail"/>
+        </div>
+        <div class="col-4">
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td>@Model.Title</td>
+                </tr>
+                <tr>
+                    <td>Release Date</td>
+                    <td>@Model.ReleaseDate</td>
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td>@Model.Duration</td>
+                </tr>
+                <tr>
+                    <td>Descritpion</td>
+                    <td>@Model.Description</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
