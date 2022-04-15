@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieStoreApp.Infrastructure.Entity
+namespace MovieStoreApp.Core.Entity
 {
-    public class MovieCast
+    public class MovieGenre
     {
         public int MovieId { get; set; }
-        public int CastId { get; set; }
-        public string Character { get; set; }
+        public int GenreId { get; set; }
     }
 }

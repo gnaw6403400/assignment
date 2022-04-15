@@ -3,32 +3,38 @@
 *@
 @{
 }
-@model MovieModel
-
+@model MovieResponseModel
 <div class="container">
+    <h3 class="display-4">@Model.Title Detail</h3> <hr/>
     <div class="row">
-        <div class="col-8">
-            <img src="@Model.PosterUrl" class="img-thumbnail"/>
-        </div>
         <div class="col-4">
-            <table>
-                <tr>
-                    <td>Title</td>
-                    <td>@Model.Title</td>
-                </tr>
-                <tr>
-                    <td>Release Date</td>
-                    <td>@Model.ReleaseDate</td>
-                </tr>
-                <tr>
-                    <td>Duration</td>
-                    <td>@Model.Duration</td>
-                </tr>
-                <tr>
-                    <td>Descritpion</td>
-                    <td>@Model.Description</td>
-                </tr>
-            </table>
+            <img src="@Model.PosterUrl" />
+        </div>
+        <div class="col-8">
+            <ul class="list-group">
+                <li class="list-group-item">Title - @Model.Title</li>
+                <li class="list-group-item">Tagline - @Model.Tagline</li>
+                <li class="list-group-item">Runtime - @Model.Runtime | Budget - @Model.Budget</li>
+                <li class="list-group-item">Description - @Model.Overview</li>
+                <li class="list-group-item">Language - @Model.OriginalLanguage | Release On : @Model.ReleaseDate.ToShortDateString() </li>
+            </ul>
+
+
+            @foreach(var mcast in @Model.MovieCasts)
+            {
+                
+            
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="@mcast.Cast.ProfilePath" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@mcast.Cast.Name</h5>
+                            <p class="card-text">@mcast.Cast.Gender</p>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
         </div>
     </div>
 </div>

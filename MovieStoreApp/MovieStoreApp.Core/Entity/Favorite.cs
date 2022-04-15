@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieStoreApp.Infrastructure.Entity
+namespace MovieStoreApp.Core.Entity
 {
-    public class UserRole
+    public class Favorite
     {
+        public int Id { get; set; }
+        public int MovieId { get; set; }
         public int UserId { get; set; }
-        public int RoleId { get; set; }
+
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieStoreApp.Infrastructure.Entity
+namespace MovieStoreApp.Core.Entity
 {
     public class Role
     {

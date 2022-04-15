@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieStoreApp.Infrastructure.Entity
+namespace MovieStoreApp.Core.Entity
 {
-    public class Crew
+    public class Trailer
     {
         public int Id { get; set; }
+        public int MovieId { get; set; }
+        public string TrailerUrl { get; set; }
         public string Name { get; set; }
-        public string Gender { get; set; }
-        public string TmdbUrl { get; set; }
-        public string ProfilePath { get; set; }
     }
 }
