@@ -42,7 +42,7 @@ namespace MovieStoreApp.Infrastructure.Repository
         public async Task<int> InsertAsync(T entity)
         {
             await db.Set<T>().AddAsync(entity);
-            await db.SaveChangesAsync();//commit
+            db.SaveChanges();//commit
             return 1;
         }
 
